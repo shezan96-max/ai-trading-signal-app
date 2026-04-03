@@ -1,5 +1,8 @@
 import asyncpg
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 DATABASE_URL=os.getenv("DATABASE_URL")
 
@@ -18,5 +21,4 @@ class DataBase:
     async def execute(cls, query : str, *args):
         async with cls.pool.acquire() as conn:
             return await conn.fetch(query, *args)
-        
         

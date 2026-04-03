@@ -6,7 +6,7 @@ class AuthService:
     @staticmethod
     async def create_user(data):
         # check existing
-        existing = await DataBase.fetrow("SELECT id FROM users" \
+        existing = await DataBase.fetchrow("SELECT id FROM users" \
         "WHERE email=$1", data.email)
 
         if existing:
